@@ -6,13 +6,12 @@ default_device=${DEFAULT_DEVICE}
 secondary_device=${SECONDARY_DEVICE}
 profile_name=${PROFILE_NAME}
 secondary_profile_name=${SECONDARY_PROFILE_NAME}
-
-CLONE_MAC_ON_BRIDGE=1
+clone_mac_on_bridge=${CLONE_MAC_ON_BRIDGE}
 
 mac=$(sudo nmcli -g GENERAL.HWADDR dev show $default_device | sed -e 's/\\//g')
 
 # make bridge
-if [[ ! -z ${CLONE_MAC_ON_BRIDGE} ]]; then
+if [[ ! -z ${clone_mac_on_bridge} ]]; then
 	sudo nmcli conn add type ovs-bridge conn.interface brcnv 802-3-ethernet.cloned-mac-address $mac
 else
 	sudo nmcli conn add type ovs-bridge conn.interface brcnv

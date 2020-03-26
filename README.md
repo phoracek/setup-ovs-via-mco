@@ -16,10 +16,16 @@ export PROFILE_NAME='Wired connection 1'
 export SECONDARY_PROFILE_NAME='Wired connection 2'
 ```
 
+Specify whether the MAC of the primary device should be explicitly assigned to the bridge:
+
+```bash
+export CLONE_MAC_ON_BRIDGE=1
+```
+
 Render configuration script to setup OVS bridge and bonds with these values:
 
 ```bash
-envsubst '${DEFAULT_DEVICE} ${SECONDARY_DEVICE} ${PROFILE_NAME} ${SECONDARY_PROFILE_NAME}' < setup-ovs.sh.tmpl > setup-ovs.sh
+envsubst '${DEFAULT_DEVICE} ${SECONDARY_DEVICE} ${PROFILE_NAME} ${SECONDARY_PROFILE_NAME} ${CLONE_MAC_ON_BRIDGE}' < setup-ovs.sh.tmpl > setup-ovs.sh
 ```
 
 Render MachineConfig template with this script encoded as BASE64:
