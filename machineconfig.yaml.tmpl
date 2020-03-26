@@ -18,7 +18,7 @@ spec:
             After=openvswitch.service
             [Service]
             Type=oneshot
-            ExecStart=/bin/sh /vat/setup-ovs.sh
+            ExecStart=/bin/sh /var/setup-ovs.sh
             [Install]
             WantedBy=multi-user.target
           name: setup-ovs.service
@@ -29,4 +29,4 @@ spec:
              source: data:text/plain;charset=utf-8;base64,${SCRIPT_BASE64}
            filesystem: root
            mode: 744
-           path: /etc/sysconfig/network-scripts/ifcfg-brcnv
+           path: /var/setup-ovs.sh
