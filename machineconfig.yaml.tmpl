@@ -18,6 +18,11 @@ spec:
             After=openvswitch.service
             [Service]
             Type=oneshot
+            Environment=DEFAULT_DEVICE=${DEFAULT_DEVICE}
+            Environment=SECONDARY_DEVICE=${SECONDARY_DEVICE}
+            Environment=PROFILE_NAME=${PROFILE_NAME}
+            Environment=SECONDARY_PROFILE_NAME=${SECONDARY_PROFILE_NAME}
+            Environment=CLONE_MAC_ON_BRIDGE=${CLONE_MAC_ON_BRIDGE}
             ExecStart=/bin/sh /var/setup-ovs.sh
             [Install]
             WantedBy=multi-user.target
