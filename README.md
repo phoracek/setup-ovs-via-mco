@@ -21,7 +21,7 @@ we have set:
 
 ```bash
 export SCRIPT_BASE64=$(base64 -w 0 setup-ovs.sh)
-envsubst '${DEFAULT_DEVICE} ${SECONDARY_DEVICE} ${PROFILE_NAME} ${SECONDARY_PROFILE_NAME} ${CLONE_MAC_ON_BRIDGE} ${SCRIPT_BASE64}' < machineconfig.yaml.tmpl > machineconfig.yaml
+envsubst '${DEFAULT_DEVICE} ${SECONDARY_DEVICE} ${PROFILE_NAME} ${SECONDARY_PROFILE_NAME} ${SCRIPT_BASE64}' < machineconfig.yaml.tmpl > machineconfig.yaml
 ```
 
 Finally, apply the MachineConfig:
