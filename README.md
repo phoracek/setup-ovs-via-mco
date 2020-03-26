@@ -1,5 +1,13 @@
 # Setup OVS bridge and bond via MCO
 
+Mark workers, so OpenShiftSDK uses OVS installed on the system after reboot:
+
+```bash
+for node in $(oc get nodes -l node.openshift.io/os_id=rhel --no-headers=true -o name | awk -F/ '{print $2}'); do
+  oc label node $node network.operator.openshift.io/external-openvswitch=true
+done
+```
+
 Login to your hosts and figure out which interfaces you want to bond. Then
 export names of relevant NICs as environment variables:
 
