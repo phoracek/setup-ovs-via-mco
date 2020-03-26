@@ -20,7 +20,7 @@ Specify whether the MAC of the primary device should be explicitly assigned to
 the bridge:
 
 ```bash
-export CLONE_MAC_ON_BRIDGE=1
+export CLONE_MAC_ON_BRIDGE=1  # set it to '' in case cloning is not needed
 ```
 
 Render MachineConfig template with this script encoded as BASE64 and variables
