@@ -3,7 +3,7 @@
 Mark workers, so OpenShiftSDK uses OVS installed on the system after reboot:
 
 ```bash
-for node in $(oc get nodes -l node.openshift.io/os_id=rhel --no-headers=true -o name | awk -F/ '{print $2}'); do
+for node in $(oc get nodes -l node-role.kubernetes.io/worker --no-headers=true -o name | awk -F/ '{print $2}'); do
   oc label node $node network.operator.openshift.io/external-openvswitch=true
 done
 ```
